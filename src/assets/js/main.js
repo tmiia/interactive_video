@@ -1,5 +1,5 @@
-import title from "./intro/title";
+import play from "./intro/play";
 
 window.onload = function() {
-  title.init();
+  play.init();
 }
