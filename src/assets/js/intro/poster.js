@@ -39,10 +39,11 @@ const poster = {
       rotate : 9
     },
   ],
+  index : 0,
 
   init() {
     this.createPoster();
-    this.animate();
+    this.displayPoster()
   },
 
   createPoster() {
@@ -72,13 +73,7 @@ const poster = {
     poster.classList.toggle('shake');
   },
 
-  animate() {
-    const posters = document.querySelectorAll(".poster");
-
-    posters.forEach((poster, index) => {
-      const posFromX = parseFloat(poster.dataset.posFromX);
-      const posFromY = parseFloat(poster.dataset.posFromY);
-
+  animate(poster) {
       const posToX = parseFloat(poster.dataset.posToX);
       const posToY = parseFloat(poster.dataset.posToY);
 
@@ -89,14 +84,22 @@ const poster = {
         top: `${posToY}%`,
         left: `${posToX}%`,
         rotation: rotate,
-        delay: index * 0.3,
         ease: "steps(5)",
         onStart: () => this.toggleShake(poster),
         onComplete: () => this.toggleShake(poster)
       });
-    });
-
   },
+
+  displayPoster(){
+    let postersItem = document.querySelectorAll('.poster');
+
+    window.addEventListener('click', ()=>{
+      if (this.index  <= postersItem.length) {
+        this.animate(postersItem[this.index])
+        this.index++;
+      }
+    })
+  }
 
 };
 
