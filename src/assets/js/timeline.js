@@ -21,7 +21,7 @@ const timeline = {
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
-        e.detail.isActive = false;
+        e.detail.stop();
         this.manageSequenceCtx();
       })
     }
