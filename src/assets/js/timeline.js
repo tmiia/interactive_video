@@ -3,6 +3,7 @@ import Title from './sequences/ctx_title.js';
 
 const timeline = {
   sequences : [],
+  currentIndex : 0,
 
   init(){
     this.createSequence()
@@ -12,7 +13,7 @@ const timeline = {
   },
 
   play() {
-    this.sequences[0].play();
+    this.sequences[this.currentIndex].play();
     this.manageSequenceCtx();
   },
 
@@ -23,6 +24,7 @@ const timeline = {
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
         e.detail.stop();
+        this.transition();
         this.manageSequenceCtx();
       })
     }
@@ -31,12 +33,22 @@ const timeline = {
   manageSequenceCtx(){
     this.sequences.forEach(seq => {
       if (seq.isActive === false) {
+        if (seq.context.classList.contains("keep")) {
+          return;
+        }
         seq.context.classList.remove("active");
       }
       else {
         seq.context.classList.add("active");
       }
     });
+  },
+
+  transition(){
+    if (this.currentIndex + 1 <= this.sequences.length) {
+      this.currentIndex += 1;
+      this.sequences[this.currentIndex].play();
+    }
   }
 };
 
