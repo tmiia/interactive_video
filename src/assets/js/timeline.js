@@ -18,6 +18,13 @@ const timeline = {
 
   createSequence(){
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 0));
+
+    for (let i = 0; i < this.sequences.length; i++) {
+      this.sequences[i].addEventListener("isComplete", (e) =>{
+        e.detail.isActive = false;
+        this.manageSequenceCtx();
+      })
+    }
   },
 
   manageSequenceCtx(){

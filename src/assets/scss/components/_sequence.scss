@@ -1,0 +1,7 @@
+.sequence{
+  display: none;
+
+  &.active{
+    display: block;
+  }
+}

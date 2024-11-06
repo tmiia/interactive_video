@@ -84,7 +84,6 @@ export default class Poster extends Sequence {
   animate(poster) {
       const posToX = parseFloat(poster.dataset.posToX);
       const posToY = parseFloat(poster.dataset.posToY);
-
       const rotate = parseFloat(poster.dataset.rotate);
 
       gsap.to( poster, {
@@ -105,6 +104,9 @@ export default class Poster extends Sequence {
       if (this.index <= postersItem.length - 1) {
         this.animate(postersItem[this.index])
         this.index++;
+      }
+      else {
+        this.onComplete()
       }
     })
   }

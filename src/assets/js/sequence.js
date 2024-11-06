@@ -1,5 +1,6 @@
-export default class Sequence {
+export default class Sequence extends EventTarget {
   constructor(context, rank) {
+    super();
     this.context = context;
     this.isActive = false;
     this.rank = rank;
@@ -13,5 +14,10 @@ export default class Sequence {
   stop(){
     this.isActive = false;
     console.log(this.rank, "stop");
+  }
+
+  onComplete() {
+    this.isComplete = true;
+    this.dispatchEvent(new CustomEvent('isComplete', { detail: this }));
   }
 }
