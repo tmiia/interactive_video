@@ -1,0 +1,12 @@
+.shake{
+  animation: shake .5s infinite alternate-reverse forwards ease;
+}
+
+@keyframes shake {
+  0%{
+    transform: rotate(-10deg);
+  }
+  100%{
+    transform: rotate(10deg);
+  }
+}

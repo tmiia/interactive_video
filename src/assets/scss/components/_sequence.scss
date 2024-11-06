@@ -1,7 +1,7 @@
 .sequence{
   display: none;
 
-  &.active{
+  &.active, &.before{
     display: block;
   }
 }

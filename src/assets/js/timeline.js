@@ -1,5 +1,6 @@
 import Poster from './sequences/ctx_poster.js';
 import Title from './sequences/ctx_title.js';
+import Ball from './sequences/ball.js';
 
 const timeline = {
   sequences : [],
@@ -20,6 +21,7 @@ const timeline = {
   createSequence(){
     this.sequences.push(new Title(document.getElementById('js-seq-title'), 0, document.getElementById('lottie')));
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
+    this.sequences.push(new Ball(document.getElementById('js-seq-ball'), 2));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
