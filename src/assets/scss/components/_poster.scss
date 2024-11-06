@@ -1,6 +1,9 @@
 .poster{
   position: absolute;
   width: 230px;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   &__container{
     z-index: $z-index-low;

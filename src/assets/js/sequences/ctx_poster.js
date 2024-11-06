@@ -58,10 +58,9 @@ export default class Poster extends Sequence {
     const container = document.querySelector(".poster__container");
 
     this.posters.forEach((item) => {
-      const img = document.createElement("img");
+      const img = document.createElement("div");
       img.classList.add("poster");
-      img.src = item.path;
-      img.alt = item.title;
+      img.style.backgroundImage = `url('${item.path}')`;
 
       img.dataset.title = item.title;
       img.dataset.posFromX = item.posFrom.x;
