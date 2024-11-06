@@ -1,6 +1,7 @@
 import Poster from './sequences/ctx_poster.js';
 import Title from './sequences/ctx_title.js';
 import Ball from './sequences/ball.js';
+import Motion from './sequences/motion.js';
 
 const timeline = {
   sequences : [],
@@ -22,9 +23,12 @@ const timeline = {
     this.sequences.push(new Title(document.getElementById('js-seq-title'), 0, document.getElementById('lottie')));
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
     this.sequences.push(new Ball(document.getElementById('js-seq-ball'), 2));
+    this.sequences.push(new Motion(document.getElementById('js-seq-ballOpening'), 3));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
+        console.log(e.detail);
+
         e.detail.stop();
         this.transition();
         this.manageSequenceCtx();
@@ -49,6 +53,8 @@ const timeline = {
   transition(){
     if (this.currentIndex + 1 <= this.sequences.length) {
       this.currentIndex += 1;
+      console.log("transition vers : ", this.currentIndex);
+
       this.sequences[this.currentIndex].play();
     }
   }

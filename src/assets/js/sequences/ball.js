@@ -23,7 +23,10 @@ export default class Ball extends Sequence {
       left: "50%",
       ease: "steps(5)",
       onStart: () => this.toggleShake(this.ballElt),
-      onComplete: () => this.toggleShake(this.ballElt)
+      onComplete: () => {
+        this.toggleShake(this.ballElt);
+        this.onComplete();
+      }
     });
   }
 }
