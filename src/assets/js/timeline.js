@@ -1,5 +1,5 @@
-import Sequence from './sequence.js';
 import Poster from './sequences/ctx_poster.js';
+import Title from './sequences/ctx_title.js';
 
 const timeline = {
   sequences : [],
@@ -17,7 +17,8 @@ const timeline = {
   },
 
   createSequence(){
-    this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 0));
+    this.sequences.push(new Title(document.getElementById('js-seq-title'), 0, document.getElementById('lottie')));
+    this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
