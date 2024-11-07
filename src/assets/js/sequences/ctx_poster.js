@@ -48,7 +48,10 @@ export default class Poster extends Sequence {
   play(){
     super.play()
     this.createPoster();
-    this.displayPoster()
+    for (let i = 0; i < 2; i++) {
+      this.clickHandler();
+    }
+    this.displayPoster();
   }
 
   stop(){
