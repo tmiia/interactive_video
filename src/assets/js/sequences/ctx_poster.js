@@ -42,6 +42,7 @@ export default class Poster extends Sequence {
       },
     ]
     this.index = 0;
+    this.clickHandler = this.handleClick.bind(this);
   }
 
   play(){
@@ -52,6 +53,7 @@ export default class Poster extends Sequence {
 
   stop(){
     super.stop()
+    this.removeClickListener();
   }
 
   createPoster() {
@@ -96,17 +98,21 @@ export default class Poster extends Sequence {
       });
   }
 
-  displayPoster(){
+  handleClick() {
     let postersItem = document.querySelectorAll('.poster');
+    if (this.index <= postersItem.length - 1) {
+      this.animate(postersItem[this.index]);
+      this.index++;
+    } else {
+      this.onComplete();
+    }
+  }
 
-    window.addEventListener('click', ()=>{
-      if (this.index <= postersItem.length - 1) {
-        this.animate(postersItem[this.index])
-        this.index++;
-      }
-      else {
-        this.onComplete()
-      }
-    })
+  displayPoster() {
+    window.addEventListener('click', this.clickHandler);
+  }
+
+  removeClickListener() {
+    window.removeEventListener('click', this.clickHandler);
   }
 }
