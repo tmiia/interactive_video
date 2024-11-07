@@ -11,8 +11,23 @@
 <body>
     <section class="camera" id="js-seq-camera">
       <div class="scene js-scene">
+
+        <section class="sequence before intro" id="js-seq-intro">
+          <div class="bg visible">
+            <button class="intro__btn js-play">Play</button>
+          </div>
+        </section>
+
         <section class="sequence keep" id="js-seq-title">
-          <div id="lottie" class="title"></div>
+          <div id="lottie" class="title">
+            <video class="title__display visible">
+              <source src="/videos/title/display.webm" type="video/mp4">
+            </video>
+
+            <video class="title__moving" loop>
+              <source src="/videos/title/moving.webm" type="video/mp4">
+            </video>
+          </div>
         </section>
 
         <section class="sequence keep" id="js-seq-ctx">

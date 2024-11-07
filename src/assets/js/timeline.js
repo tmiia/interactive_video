@@ -5,6 +5,7 @@ import Camera from './sequences/camera.js';
 import Godzilla from './sequences/godzilla.js';
 import Godzillamotion from './sequences/godzilla_motion.js';
 import Page from './sequences/page.js';
+import Intro from './sequences/intro.js';
 
 const timeline = {
   sequences : [],
@@ -23,6 +24,7 @@ const timeline = {
   },
 
   createSequence(){
+    this.sequences.push(new Intro(document.getElementById('js-seq-intro'), 0));
     this.sequences.push(new Title(document.getElementById('js-seq-title'), 0, document.getElementById('lottie')));
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
     this.sequences.push(new Camera(document.getElementById('js-seq-camera'), 2));

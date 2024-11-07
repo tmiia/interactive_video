@@ -5,23 +5,22 @@ export default class Title extends Sequence {
   constructor(context, rank, container) {
     super(context, rank);
 
-    this.container = container
+    this.container = container;
+    this.displayVideo = this.context.querySelector('.title__display');
+    this.movingVideo = this.context.querySelector('.title__moving');
   }
 
   play(){
     super.play()
 
-    const animation = lottie.loadAnimation({
-      container: this.container,
-      renderer: 'svg',
-      loop: false,
-      autoplay: true,
-      path: '/lottie/title.json'
-    });
+    this.displayVideo.play();
+    this.movingVideo.play();
 
-    animation.addEventListener('complete', () => {
+    setTimeout(function() {
+      this.displayVideo.classList.remove("visible");
+      this.movingVideo.classList.add("visible");
       this.onComplete();
-    });
+    }.bind(this), (this.displayVideo.duration * 1000));
   }
 
   stop(){

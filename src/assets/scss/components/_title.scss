@@ -1,7 +1,15 @@
 .title{
   z-index: $z-index-low;
   position: absolute;
-  top: $spacing-huge;
-  left: $spacing-huge;
-  width: 35rem;
+  top: $spacing-lg;
+  left: $spacing-lg;
+
+  video{
+    display: none;
+    height: 8rem;
+
+    &.visible{
+      display: block;
+    }
+  }
 }
