@@ -2,6 +2,8 @@ import Poster from './sequences/ctx_poster.js';
 import Title from './sequences/ctx_title.js';
 import Ball from './sequences/ball.js';
 import Motion from './sequences/motion.js';
+import Camera from './sequences/camera.js';
+import Godzilla from './sequences/godzilla.js';
 
 const timeline = {
   sequences : [],
@@ -22,15 +24,19 @@ const timeline = {
   createSequence(){
     this.sequences.push(new Title(document.getElementById('js-seq-title'), 0, document.getElementById('lottie')));
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
-    this.sequences.push(new Ball(document.getElementById('js-seq-ball'), 2));
-    this.sequences.push(new Motion(document.getElementById('js-seq-ballOpening'), 3));
-    this.sequences.push(new Motion(document.getElementById('js-seq-pageturn-1'), 4));
+    this.sequences.push(new Camera(document.getElementById('js-seq-camera'), 2));
+    // this.sequences.push(new Ball(document.getElementById('js-seq-ball'), 3));
+    this.sequences.push(new Motion(document.getElementById('js-seq-ballOpening'), 4));
+    this.sequences.push(new Godzilla(document.getElementById('js-seq-godzilla'), 5));
+    this.sequences.push(new Motion(document.getElementById('js-seq-pageturn-1'), 6));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
         console.log(e.detail);
 
-        e.detail.stop();
+        if (!e.detail.context.classList.contains("no-stop")) {
+          e.detail.stop();
+        }
         this.transition();
         this.manageSequenceCtx();
       })

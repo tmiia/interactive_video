@@ -5,6 +5,7 @@ export default class Motion extends Sequence {
   constructor(context, rank) {
     super(context, rank);
     this.motion = this.context.querySelector('.motion');
+    this.scene = document.querySelector('.js-scene');
   }
 
   play(){
@@ -14,14 +15,20 @@ export default class Motion extends Sequence {
   }
 
   animate() {
+    const keepElt = document.querySelectorAll('.keep');
+
     const tl = gsap.timeline({
       onComplete: () => {
         this.tossIt();
       }
     });
 
-    tl.to(this.motion, {zIndex: 1000, duration: 0.3, delay: 0.5});
-    tl.to(this.motion, {zIndex: 5, duration: 0.5, delay: 8.5});
+    tl.to(this.motion, {zIndex: 1000, duration: 0.3, delay: .3});
+    tl.to(this.scene, {x: 0, y: 0, duration: 0.3}, "<");
+    tl.add( function () {
+      this.onComplete()
+    }.bind(this), 2);
+    tl.to(this.motion, {zIndex: 5, duration: 0.3, delay: 7.5});
     tl.to(this.motion, {opacity: 0, duration: 0});
   }
 

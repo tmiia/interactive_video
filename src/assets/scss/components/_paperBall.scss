@@ -1,11 +1,11 @@
 .paperBall{
   z-index: $z-index-low;
   position: absolute;
-  top: 85%;
-  left: 67%;
+  top: 15.5%;
+  left: 53.5%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 237px;
+  width: 170px;
+  height: 157px;
   background-image: url('/images/paperBall.png');
   background-size: cover;
 }

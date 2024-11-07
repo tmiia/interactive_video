@@ -8,36 +8,36 @@ export default class Poster extends Sequence {
       {
         title : "beetlejuice",
         path : "/images/posters/posterbeetlejuice.png",
-        posFrom : {x: 80, y: 110},
-        posTo : {x: 50, y: 37},
+        posFrom : {x: 30, y: 30},
+        posTo : {x: 33, y: 8.5},
         rotate : 7
       },
       {
         title : "furiosa",
         path : "/images/posters/posterfuriosa.png",
-        posFrom : {x: -20, y: 40},
-        posTo : {x: 5, y: 55},
+        posFrom : {x: -30, y: 40},
+        posTo : {x: 3, y: 11},
         rotate : -6
       },
       {
         title : "godzilla",
         path : "/images/posters/postergodzilla.png",
-        posFrom : {x: 30, y: 110},
-        posTo : {x: 48, y: 75},
+        posFrom : {x: 30, y: 30},
+        posTo : {x: 35, y: 15},
         rotate : -7
       },
       {
         title : "joker",
         path : "/images/posters/posterjoker.png",
         posFrom : {x: -30, y: 0},
-        posTo : {x: 21, y: 38},
+        posTo : {x: 16, y: 8},
         rotate : 5
       },
       {
         title : "sosfantome",
         path : "/images/posters/postersosfantome.png",
         posFrom : {x: -5, y: 110},
-        posTo : {x: 15, y: 80},
+        posTo : {x: 11, y: 19},
         rotate : 9
       },
     ]
