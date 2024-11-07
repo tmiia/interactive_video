@@ -74,6 +74,11 @@ export default class Poster extends Sequence {
       img.style.left = `${item.posFrom.x}%`;
       img.style.top = `${item.posFrom.y}%`;
 
+      const date = document.createElement("video");
+      date.classList.add("poster__date");
+      this.addSourceToVideo(date, `/videos/dates/date-${item.title}.webm`, 'video/mp4');
+
+      img.appendChild(date);
       container.appendChild(img);
     });
   }
@@ -94,7 +99,10 @@ export default class Poster extends Sequence {
         rotation: rotate,
         ease: "steps(5)",
         onStart: () => this.toggleShake(poster),
-        onComplete: () => this.toggleShake(poster)
+        onComplete: () => {
+          this.toggleShake(poster);
+          this.displayDate(poster);
+        }
       });
   }
 
@@ -114,5 +122,21 @@ export default class Poster extends Sequence {
 
   removeClickListener() {
     window.removeEventListener('click', this.clickHandler);
+  }
+
+  displayDate(poster){
+    const video = poster.querySelector('video');
+    video.classList.add('visible');
+    video.play();
+  }
+
+  addSourceToVideo(element, src, type) {
+    var source = document.createElement('source');
+
+    source.src = src;
+    source.type = type;
+    element.loop = true;
+
+    element.appendChild(source);
   }
 }
