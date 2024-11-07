@@ -14,4 +14,8 @@
   &.move{
     transform: translate(-5%, 0%);
   }
+
+  &.no-zoom{
+    transform: scale(1) translate(0, 0)!important;
+  }
 }

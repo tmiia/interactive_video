@@ -1,9 +1,12 @@
+import { gsap } from "gsap";
 import Sequence from "../sequence.js";
 
 export default class Godzilla extends Sequence {
   constructor(context, rank) {
     super(context, rank);
     this.scene = document.querySelector(".js-scene");
+    this.motion = this.context.querySelector('.motion');
+    this.ballElt = document.querySelector('.js-ball');
   }
 
   play(){
