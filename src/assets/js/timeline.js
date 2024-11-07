@@ -1,10 +1,10 @@
 import Poster from './sequences/ctx_poster.js';
 import Title from './sequences/ctx_title.js';
-import Ball from './sequences/ball.js';
 import Motion from './sequences/motion.js';
 import Camera from './sequences/camera.js';
 import Godzilla from './sequences/godzilla.js';
 import Godzillamotion from './sequences/godzilla_motion.js';
+import Page from './sequences/page.js';
 
 const timeline = {
   sequences : [],
@@ -29,7 +29,9 @@ const timeline = {
     this.sequences.push(new Motion(document.getElementById('js-seq-ballOpening'), 4));
     this.sequences.push(new Godzilla(document.getElementById('js-seq-godzilla'), 5));
     this.sequences.push(new Godzillamotion(document.getElementById('js-seq-godzilla-motion'), 6));
-    this.sequences.push(new Motion(document.getElementById('js-seq-pageturn-1'), 7));
+    this.sequences.push(new Page(document.getElementById('js-seq-pageturn-1'), 7));
+    this.sequences.push(new Page(document.getElementById('js-seq-pageturn-2'), 8));
+    this.sequences.push(new Page(document.getElementById('js-seq-pageturn-3'), 9));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
