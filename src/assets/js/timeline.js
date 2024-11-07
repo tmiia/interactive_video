@@ -24,6 +24,7 @@ const timeline = {
     this.sequences.push(new Poster(document.getElementById('js-seq-ctx'), 1));
     this.sequences.push(new Ball(document.getElementById('js-seq-ball'), 2));
     this.sequences.push(new Motion(document.getElementById('js-seq-ballOpening'), 3));
+    this.sequences.push(new Motion(document.getElementById('js-seq-pageturn-1'), 4));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
