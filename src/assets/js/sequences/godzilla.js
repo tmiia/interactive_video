@@ -12,7 +12,7 @@ export default class Godzilla extends Sequence {
   play(){
     super.play()
 
-    this.scene.style.backgroundImage = "url('/images/background-godzilla.jpg')";
+    this.scene.style.backgroundImage = "url('/images/background-godzilla.png')";
     const keepElt = document.querySelectorAll('.keep');
 
     keepElt.forEach(elt => {
