@@ -6,6 +6,7 @@ export default class Title extends Sequence {
     this.btn = this.context.querySelector('.js-play');
     this.intro = this.context.querySelector('.bg');
     this.title = this.context.querySelector('video');
+    this.audio = document.querySelector('.js-bg-sound');
   }
 
   play(){
@@ -15,6 +16,8 @@ export default class Title extends Sequence {
 
     this.btn.addEventListener('click', ()=>{
       this.intro.classList.remove('visible');
+      this.audio.volume = 0.05;
+      this.audio.play();
       this.onComplete();
     })
   }
