@@ -10,35 +10,40 @@ export default class Poster extends Sequence {
         path : "/images/posters/posterbeetlejuice.png",
         posFrom : {x: 30, y: 30},
         posTo : {x: 33, y: 8.5},
-        rotate : 7
+        rotate : 7,
+        date : "top"
       },
       {
         title : "furiosa",
         path : "/images/posters/posterfuriosa.png",
         posFrom : {x: -30, y: 40},
         posTo : {x: 3, y: 11},
-        rotate : -6
+        rotate : -6,
+        date : "top"
       },
       {
         title : "godzilla",
         path : "/images/posters/postergodzilla.png",
         posFrom : {x: 30, y: 30},
         posTo : {x: 35, y: 15},
-        rotate : -7
+        rotate : -7,
+        date : "right"
       },
       {
         title : "joker",
         path : "/images/posters/posterjoker.png",
         posFrom : {x: -30, y: 0},
         posTo : {x: 16, y: 8},
-        rotate : 5
+        rotate : 5,
+        date : "top-left"
       },
       {
         title : "sosfantome",
         path : "/images/posters/postersosfantome.png",
         posFrom : {x: -5, y: 110},
         posTo : {x: 11, y: 19},
-        rotate : 9
+        rotate : 9,
+        date : "top-right"
       },
     ]
     this.index = 0;
@@ -79,6 +84,7 @@ export default class Poster extends Sequence {
 
       const date = document.createElement("video");
       date.classList.add("poster__date");
+      date.classList.add(`${item.date}`);
       this.addSourceToVideo(date, `/videos/dates/date-${item.title}.webm`, 'video/mp4');
 
       img.appendChild(date);
