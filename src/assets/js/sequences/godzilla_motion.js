@@ -7,12 +7,13 @@ export default class Godzilla extends Sequence {
     this.scene = document.querySelector(".js-scene");
     this.motion = this.context.querySelector('.motion');
     this.video = this.motion.querySelector("video");
+    this.help = document.querySelector('.ui-help[data-help="drag"]');
   }
 
   play(){
     super.play()
     this.playVideo();
-    console.log(this.video.duration);
+    this.help.classList.remove('visible');
 
     this.scene.classList.remove("move")
     this.scene.classList.add("no-zoom")

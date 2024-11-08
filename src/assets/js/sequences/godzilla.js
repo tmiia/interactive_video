@@ -7,6 +7,7 @@ export default class Godzilla extends Sequence {
     this.scene = document.querySelector(".js-scene");
     this.motion = this.context.querySelector('.motion');
     this.ballElt = document.querySelector('.js-ball');
+    this.help = this.context.querySelector('.ui-help');
   }
 
   play(){
@@ -20,6 +21,13 @@ export default class Godzilla extends Sequence {
         elt.classList.remove('keep');
       }
     });
+
+
+    setTimeout(function() {
+      if (this.help) {
+        this.help.classList.add('visible');
+      }
+    }.bind(this), 7000);
   }
 
   stop(){
