@@ -11,7 +11,8 @@ export default class Poster extends Sequence {
         posFrom : {x: 30, y: 30},
         posTo : {x: 33, y: 8.5},
         rotate : 7,
-        date : "top"
+        date : "top",
+        sound: 3
       },
       {
         title : "furiosa",
@@ -19,7 +20,8 @@ export default class Poster extends Sequence {
         posFrom : {x: -30, y: 40},
         posTo : {x: 3, y: 11},
         rotate : -6,
-        date : "top"
+        date : "top",
+        sound: 3
       },
       {
         title : "godzilla",
@@ -27,7 +29,8 @@ export default class Poster extends Sequence {
         posFrom : {x: 30, y: 30},
         posTo : {x: 35, y: 15},
         rotate : -7,
-        date : "right"
+        date : "right",
+        sound: 3
       },
       {
         title : "joker",
@@ -35,7 +38,8 @@ export default class Poster extends Sequence {
         posFrom : {x: -30, y: 0},
         posTo : {x: 16, y: 8},
         rotate : 5,
-        date : "top-left"
+        date : "top-left",
+        sound: 3
       },
       {
         title : "sosfantome",
@@ -43,7 +47,8 @@ export default class Poster extends Sequence {
         posFrom : {x: -5, y: 110},
         posTo : {x: 11, y: 19},
         rotate : 9,
-        date : "top-right"
+        date : "top-right",
+        sound: 3
       },
     ]
     this.index = 0;
@@ -87,7 +92,14 @@ export default class Poster extends Sequence {
       date.classList.add(`${item.date}`);
       this.addSourceToVideo(date, `/videos/dates/date-${item.title}.webm`, 'video/mp4');
 
+      const sound = document.createElement("audio");
+      sound.src      = `/sounds/rubbing/sound-${item.sound}.wav`;
+      sound.type     = 'audio/wav';
+      sound.loop     = true;
+      // sound.volume     = 0.5;
+
       img.appendChild(date);
+      img.appendChild(sound);
       container.appendChild(img);
     });
   }
@@ -97,6 +109,8 @@ export default class Poster extends Sequence {
   }
 
   animate(poster) {
+      const audio = poster.querySelector('audio');
+
       const posToX = parseFloat(poster.dataset.posToX);
       const posToY = parseFloat(poster.dataset.posToY);
       const rotate = parseFloat(poster.dataset.rotate);
@@ -107,9 +121,13 @@ export default class Poster extends Sequence {
         left: `${posToX}%`,
         rotation: rotate,
         ease: "steps(5)",
-        onStart: () => this.toggleShake(poster),
+        onStart: () => {
+          this.toggleShake(poster);
+          audio.play()
+        },
         onComplete: () => {
           this.toggleShake(poster);
+          audio.pause()
           this.displayDate(poster);
         }
       });
