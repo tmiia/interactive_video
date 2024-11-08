@@ -20,5 +20,16 @@
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    border: none;
+    background-color: rgb(55, 208, 239);
+    border-radius: 4rem;
+    padding: $spacing-md $spacing-xxl;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover{
+      background-color: darken($color: rgb(55, 208, 239), $amount: 10);
+    }
   }
 }
