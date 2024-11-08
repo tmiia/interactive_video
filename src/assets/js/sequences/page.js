@@ -11,7 +11,7 @@ export default class Motion extends Sequence {
   play(){
     super.play()
     this.context.querySelector('video').play()
-
+    this.scene.style.backgroundImage = "url('/images/background.png')";
     this.addClickListener();
   }
 

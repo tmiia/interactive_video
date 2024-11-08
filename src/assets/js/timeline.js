@@ -6,6 +6,7 @@ import Godzilla from './sequences/godzilla.js';
 import Godzillamotion from './sequences/godzilla_motion.js';
 import Page from './sequences/page.js';
 import Intro from './sequences/intro.js';
+import End from './sequences/end.js';
 
 const timeline = {
   sequences : [],
@@ -34,7 +35,8 @@ const timeline = {
     this.sequences.push(new Page(document.getElementById('js-seq-pageturn-1'), 7));
     this.sequences.push(new Page(document.getElementById('js-seq-pageturn-2'), 8));
     this.sequences.push(new Page(document.getElementById('js-seq-pageturn-3'), 9));
-    this.sequences.push(new Page(document.getElementById('js-seq-pageturn-end'), 10));
+    this.sequences.push(new Godzillamotion(document.getElementById('js-seq-pageturn-end'), 10));
+    this.sequences.push(new End(document.getElementById('js-seq-end'), 11));
 
     for (let i = 0; i < this.sequences.length; i++) {
       this.sequences[i].addEventListener("isComplete", (e) =>{
