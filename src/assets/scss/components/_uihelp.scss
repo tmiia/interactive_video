@@ -1,0 +1,40 @@
+.ui-help{
+  position: absolute;
+  width: 4rem;
+  opacity: 0;
+  transition: .3s ease-in-out;
+
+  &.visible{
+    opacity: 1;
+  }
+
+  &.ball{
+    z-index: 1000;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#js-seq-ctx{
+  .ui-help{
+    top: 17%;
+    left: 27%;
+  }
+}
+
+#js-seq-pageturn-1, #js-seq-pageturn-2, #js-seq-pageturn-3{
+  .ui-help{
+    top: 50%;
+    left: 75%;
+  }
+}
+
+// #js-seq-camera{
+//   .ui-help{
+//     z-index: 1000;
+//     top: 15.5%;
+//     left: 53.5%;
+//     transform: translate(-50%, -50%);
+//   }
+// }

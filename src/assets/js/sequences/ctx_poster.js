@@ -138,6 +138,17 @@ export default class Poster extends Sequence {
     if (this.index <= postersItem.length - 1) {
       this.animate(postersItem[this.index]);
       this.index++;
+
+      if (this.index === postersItem.length) {
+        let help =  this.context.querySelector('.ui-help');
+        if (help) {
+          help.classList.remove('visible');
+        }
+
+        setTimeout(function() {
+          this.onComplete();
+        }.bind(this), 500);
+      }
     } else {
       this.onComplete();
     }

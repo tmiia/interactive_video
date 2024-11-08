@@ -12,7 +12,7 @@
   transition: .5s ease-in-out;
 
   &.move{
-    transform: translate(-5%, 0%);
+    transform: scale(1.5) translate(-20%, -5%);
   }
 
   &.no-zoom{
