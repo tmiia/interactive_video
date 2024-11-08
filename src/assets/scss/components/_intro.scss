@@ -20,16 +20,17 @@
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    color: $color-white;
     border: none;
-    background-color: rgb(55, 208, 239);
+    background-color: #232E5E;
     border-radius: 4rem;
-    padding: $spacing-md $spacing-xxl;
+    padding: $spacing-xs $spacing-xxl;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     cursor: pointer;
 
     &:hover{
-      background-color: darken($color: rgb(55, 208, 239), $amount: 10);
+      background-color: darken($color: #232E5E, $amount: 10);
     }
   }
 }
