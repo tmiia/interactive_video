@@ -16,7 +16,7 @@ export default class Title extends Sequence {
 
     this.btn.addEventListener('click', ()=>{
       this.intro.classList.remove('visible');
-      this.audio.volume = 0.05;
+      this.audio.volume = 0.10;
       this.audio.play();
       this.onComplete();
     })

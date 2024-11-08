@@ -6,11 +6,13 @@ export default class Motion extends Sequence {
     super(context, rank);
     this.motion = this.context.querySelector('.motion');
     this.scene = document.querySelector('.js-scene');
+    this.video = this.context.querySelector('video');
   }
 
   play(){
     super.play()
-    this.context.querySelector('video').play()
+    this.video.volume = 0.3;
+    this.video.play()
     this.animate()
   }
 
